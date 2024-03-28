@@ -4,7 +4,7 @@ import App from './App.jsx'
 import ReactDOM from 'react-dom/client'
 import Protected from './components/Protected.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Login, Signup } from "./pages/index.js"
+import { Home, Login, Signup, VideoPlayer } from "./pages/index.js"
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,14 @@ const router = createBrowserRouter([
         element: (
           <Protected authentication={false}>
             <Signup />
+          </Protected>
+        )
+      },
+      {
+        path: "/videoplayer",
+        element: (
+          <Protected>
+            <VideoPlayer />
           </Protected>
         )
       },
