@@ -45,8 +45,8 @@ export const VideoJS = (props) => {
   }, [refPlayer]);
 
   return (
-    <div data-vjs-player vjs-layout-small>
-      <div ref={refVideo} />
+    <div data-vjs-player>
+      <div ref={refVideo} className='lg:w-3/5'/>
     </div>
   );
 }

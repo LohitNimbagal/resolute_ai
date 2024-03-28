@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRef } from 'react';
 import VideoJS from '../components/VideoJS'
 import videojs from 'video.js';
+
+const comments = [
+    { time: 5, comment: "Comment at 5 seconds" },
+    { time: 10, comment: "Comment at 10 seconds" },
+    { time: 15, comment: "Comment at 15 seconds" },
+]
 
 export default function VideoPlayer() {
     const refPlayer = useRef(null);
@@ -14,11 +20,7 @@ export default function VideoPlayer() {
         sources: [{
             src: 'https://media-files.vidstack.io/720p.mp4',
             type: 'video/mp4'
-        }],
-        // breakpoints: {
-        //     medium: 210
-        // },
-        // breakpoints: true
+        }]
     };
 
     const handlePlayerReady = (player) => {
@@ -32,6 +34,15 @@ export default function VideoPlayer() {
         player.on('dispose', () => {
             videojs.log('player will dispose');
         });
+
+        player.on('timeupdate', () => {
+            const currentTime = player.currentTime(); // Get current time
+            syncComments(currentTime);
+        });
+    };
+
+    const syncComments = (currentTime) => {
+        console.log('Current Time:', currentTime);
     };
 
     return (
