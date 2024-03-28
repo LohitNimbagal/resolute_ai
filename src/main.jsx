@@ -4,7 +4,7 @@ import App from './App.jsx'
 import ReactDOM from 'react-dom/client'
 import Protected from './components/Protected.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Login, Signup, VideoPlayer } from "./pages/index.js"
+import { Home, Login, Signup } from "./pages/index.js"
 
 const router = createBrowserRouter([
   {
@@ -35,14 +35,6 @@ const router = createBrowserRouter([
           </Protected>
         )
       },
-      {
-        path: "/videoplayer",
-        element: (
-          <Protected>
-            <VideoPlayer />
-          </Protected>
-        )
-      },
     ]
   },
   // {
@@ -54,7 +46,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
